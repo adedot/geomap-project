@@ -75,20 +75,10 @@ function createCircleFromCoordinates(){
   // Get the numbers from html inputs
   var longitude = Number(document.getElementsByName("Longitude")[0].value);
   var latitude = Number(document.getElementsByName("Latitude")[0].value);
-  var radiusMeters = Number(document.getElementsByName("RadiusMeters")[0].value);
   var radiusInput = Number(document.getElementsByName("RadiusMiles")[0].value);
   var radiusMiles = radiusInput * 1609.34;
 
-  if (radiusMiles == 0 &&	radiusMeters > 0) {
-    createCircle(latitude, longitude, radiusMeters);
-  } else if (radiusMeters == 0 && radiusMiles > 0) {
-        createCircle(latitude, longitude, radiusMiles);
-  } else if (radiusMeters > 0 && radiusMiles > 0) {
-    alert("you cannot have a radius value in both Meters and Miles")
-  } else {
-    alert("add a radius value in either Meters or Miles")
-  }
-  
+  createCircle(latitude, longitude, radiusMiles); 
 };
  
  
