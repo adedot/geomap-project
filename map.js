@@ -57,16 +57,18 @@ function removePoints(){
 
 };
   
-  
-function createCircle(latitude, longitude, radius){
-  // Create polygon and add it to the map
   var circle = L.circle([latitude, longitude], {
    color: "#1c7119",
    fillColor: "#00b33c",
    fillOpacity: 0.3,
    radius: radius
- }).addTo(map);
-
+ });
+ 
+function createCircle(latitude, longitude, radius){
+  // Create polygon and add it to the map
+ 
+ map.addControl(circle);
+ 
  // Change the center and the view to be center of circle
   map.setView(new L.LatLng(latitude, longitude), 13);
 };
@@ -101,5 +103,10 @@ function createCircleFromAddress(){
   
 }
  
+function removeCircle(){
+	
+map.removeControl(circle);	
+	
+}
  
  
